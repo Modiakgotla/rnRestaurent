@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet,Button, Image, } from 'react-native';
 import Colors from '../../contacts/color';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
 import MainButton from '../../components/MainButton';
 import Toast from 'react-native-toast-message';
+import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const validate = () => {
+    function validate(){
         const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         if (password == "" && email == "") {
             Toast.show({
@@ -35,12 +37,12 @@ const Login = () => {
         text1: "You're serious about life Good",
         text2: "You're a real G",
     }) }
-
+    }
     
     return (
         <View style={styles.container}>
             <View style={styles.center}>
-                <Image source={require("../../assets/icon.png")}
+                <Image source={require("../../assets/coffee.jpg")}
                     style={styles.imageTop} />
                 <Text style={styles.title}>Login</Text>
             </View>
@@ -59,9 +61,10 @@ const Login = () => {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
-                <MainButton
+                <Button
                     onPress={() => {
                         validate();
+                        
                     }}
                     title="LOG IN"
                 />
@@ -77,6 +80,9 @@ const Login = () => {
                 
 
 }
+
+export default Login;
+
 const styles = StyleSheet.create({
     imageTop: {
         height: 100,
@@ -112,5 +118,5 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     }
 })
-}
-export default Login
+
+

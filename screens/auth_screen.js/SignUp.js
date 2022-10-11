@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import Colors from '../../contacts/color';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
@@ -9,9 +9,9 @@ import Toast from 'react-native-toast-message';
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [fullname,setFullname] = useState("")
+    const [fullname,setFullname] = useState("");
 
-    const validate = () => {
+    function valid(){
         const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         if (password == "" && email == "" && fullname == "") {
             Toast.show({
@@ -36,12 +36,12 @@ const SignUp = () => {
         text1: "You're serious about life Good",
         text2: "You're a real G",
     }) }
-
+}
     
     return (
         <View style={styles.container}>
             <View style={styles.center}>
-                <Image source={require("../../assets/icon.png")}
+                <Image source={require("../../assets/coffee.jpg")}
                     style={styles.imageTop} />
                 <Text style={styles.title}>Sign Up</Text>
             </View>
@@ -67,11 +67,11 @@ const SignUp = () => {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
-                <MainButton
+                <Button
                     onPress={() => {
-                        validate();
+                        valid();
                     }}
-                    title="SIGN UO"
+                    title="SIGN UP"
                 />
                 <Text style={styles.forgotPassword}>
                     <Text style={{ color: "black" }}>Already have an account?</Text>
@@ -119,5 +119,5 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     }
 })
-}
+
 export default SignUp

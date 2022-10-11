@@ -5,7 +5,8 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 
 const HomeScreen = () => {
-    <ScrollView style={styles.container}>
+    return(
+        <ScrollView style={styles.container}>
         <View style={styles.topIcon}>
             <Entypo name="menu" size={30} color="grey" />
         </View>
@@ -37,7 +38,7 @@ const HomeScreen = () => {
                     style={styles.categotyImage}
                     source={{uri: "https://images.food52.com/zA_65qNitNW9SWneIVcrqELWMJ8=/1200x1200/52096452-f9c1-49e9-9e76-46c694bee2ba--2020-1124_steak-frites_3x2_rocky-luten_032.jpg"}}
                     >
-                        <Text style={styles.imageTitle}>Burger</Text>
+                        <Text style={styles.imageTitle}>Steak and Chips</Text>
                     </ImageBackground>
                 </ScrollView>
                 <Text style={styles.title}>Drinks</Text>
@@ -59,6 +60,8 @@ const HomeScreen = () => {
                 
     </ScrollView>
     </ScrollView>
+    )
+    
 }
 const styles = StyleSheet.create({
     container: {
